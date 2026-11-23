@@ -1,474 +1,400 @@
-/* ==========================================
-   1. VARIÁVEIS E MODO CLARO/ESCURO AUTO
-   ========================================== */
-:root {
-  --bg-gradient: linear-gradient(180deg, #161b22 0%, #0d1117 100%);
-  --surface-color: #1c2228;
-  --surface-hover: #28313b;
-  --border-color: #38414a;
-  --border-hover: #adb5bd;
-  --text-primary: #ffffff;
-  --text-secondary: #9ab;
-  
-  --brand-green: #00c030;
-  --brand-green-hover: #00a829;
-  --text-on-green: #14181c;
-  
-  --brand-pink: #e8387f;
-  --brand-pink-hover: #c92a6a;
-  --text-on-pink: #ffffff;
-  
-  --bg-input: #14181c;
-  --btn-gray: #456;
-  --btn-gray-hover: #567;
-  --text-on-gray: #ffffff;
-  
-  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.2);
-  --shadow-lg: 0 10px 24px rgba(0, 0, 0, 0.45);
-  --radius-md: 12px;
-  --radius-sm: 6px;
-  --transition: all 0.3s ease;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    /* DETECÇÃO AUTOMÁTICA: Modo Claro */
-    --bg-gradient: linear-gradient(180deg, #f4f6f8 0%, #e9ecef 100%);
-    --surface-color: #ffffff;
-    --surface-hover: #f8f9fa;
-    --border-color: #dee2e6;
-    --border-hover: #adb5bd;
-    --text-primary: #212529;
-    --text-secondary: #6c757d;
-    
-    --brand-green: #00a829;
-    --brand-green-hover: #008f23;
-    --text-on-green: #ffffff;
-    
-    --brand-pink: #d62d73;
-    --brand-pink-hover: #b5205a;
-    --text-on-pink: #ffffff;
-    
-    --bg-input: #ffffff;
-    --btn-gray: #e9ecef;
-    --btn-gray-hover: #dee2e6;
-    --text-on-gray: #212529;
-    
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-    --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.15);
-  }
-}
-
-/* ==========================================
-   2. TIPOGRAFIA E RESET GLOBAL
-   ========================================== */
 @font-face {
-  font-family: 'Inter';
-  src: url('fonts/Inter/static/Inter_18pt-Regular.ttf') format('truetype');
-  font-weight: 400;
+    font-family: 'Inter';
+    src: url('fonts/Inter-Regular.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Inter';
-  src: url('fonts/Inter/static/Inter_18pt-Bold.ttf') format('truetype');
-  font-weight: 700;
-}
-
-* {
-  box-sizing: border-box;
+    font-family: 'Inter';
+    src: url('fonts/Inter-Bold.ttf') format('truetype');
+    font-weight: bold;
 }
 
 body {
-  background: var(--bg-gradient);
-  min-height: 100vh;
-  color: var(--text-secondary);
-  font-family: 'Inter', system-ui, sans-serif;
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
+    background: linear-gradient(180deg, #161b22 0%, #0d1117 100%);
+    min-height: 100vh;
+    color: #9ab;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
 }
 
 a {
-  text-decoration: none;
-  color: var(--text-secondary);
-  transition: color 0.2s;
+    text-decoration: none;
+    color: #9ab;
 }
 
 a:hover {
-  color: var(--text-primary);
+    color: white;
 }
 
-.texto-branco { color: var(--text-primary); }
-.texto-cinza { color: var(--text-secondary); }
-
-/* ==========================================
-   3. HEADER
-   ========================================== */
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 60px;
-  background-color: var(--surface-color);
-  border-bottom: 1px solid var(--border-color);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-  z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #1c2228;
+    border-bottom: 1px solid #38414a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    z-index: 1000;
 }
 
 .logo {
-  font-size: 22px;
-  color: var(--text-primary);
-  margin: 0;
-  font-weight: 700;
-  letter-spacing: -0.5px;
+    font-size: 22px;
+    color: white;
+    margin: 0;
+    font-weight: bold;
 }
 
-/* ==========================================
-   4. BOTÕES E BADGES
-   ========================================== */
-button { cursor: pointer; transition: var(--transition); }
+.texto-branco {
+    color: white;
+}
+
+.texto-cinza {
+    color: #9ab;
+}
+
+.banner {
+    background-color: #1c2228;
+    border: 1px solid #38414a;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
 
 .btn-verde {
-  background-color: var(--brand-green);
-  color: var(--text-on-green);
-  font-weight: bold;
-  padding: 10px 15px;
-  border-radius: 4px;
-  border: none;
+    background-color: #00c030;
+    color: #14181c;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 4px;
+    border: none;
 }
+
 .btn-verde:hover {
-  background-color: var(--brand-green-hover);
-  color: var(--text-on-green);
-  box-shadow: 0 4px 12px rgba(0, 192, 48, 0.25);
+    background-color: #00a829;
+    color: #14181c;
 }
 
-.btn-rosa {
-  background-color: var(--brand-pink);
-  color: var(--text-on-pink);
-  font-weight: bold;
-  padding: 8px 14px;
-  border-radius: 4px;
-  border: none;
-}
-.btn-rosa:hover {
-  background-color: var(--brand-pink-hover);
-  color: var(--text-on-pink);
-  box-shadow: 0 4px 12px rgba(232, 56, 127, 0.25);
+@media (max-width: 768px) {
+    .banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
 }
 
-.btn-cinza {
-  background-color: var(--btn-gray);
-  color: var(--text-on-gray);
-  border: none;
-  font-size: 13px;
-  font-weight: bold;
-  padding: 5px 12px;
-  border-radius: 3px;
-}
-.btn-cinza:hover {
-  background-color: var(--btn-gray-hover);
+.card {
+  background-color: #1c2228;
+  border: 1px solid #38414a;
+  color: white;
+  border-radius: 12px;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.btn-grande {
-  font-size: 15px;
-  padding: 10px 26px;
-  border-radius: 4px;
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #adb5bd !important;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+}
+
+.card-img-top {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  object-position: center top;
+  background-color: #1c1f24;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 0.6rem;
 }
 
 .badge {
   font-weight: 500;
   letter-spacing: 0.02em;
-  padding: 0.4em 0.8em;
-  border-radius: 4px;
 }
 
-/* ==========================================
-   5. CONTAINERS (Banner, Formulários)
-   ========================================== */
-.banner {
-  background-color: var(--surface-color);
-  border: 1px solid var(--border-color);
-  padding: 24px;
-  border-radius: var(--radius-sm);
-  margin-bottom: 24px;
-  box-shadow: var(--shadow-sm);
+.btn-rosa {
+    background-color: #e8387f;
+    color: white;
+    font-weight: bold;
+    padding: 8px 14px;
+    border-radius: 4px;
+    border: none;
+}
+
+.btn-rosa:hover {
+    background-color: #c92a6a;
+    color: white;
 }
 
 .caixa {
-  background-color: var(--surface-color);
-  border: 1px solid var(--border-color);
-  padding: 30px;
-  border-radius: var(--radius-md);
-  max-width: 420px;
-  margin: 0 auto;
-  box-shadow: var(--shadow-sm);
+    background-color: #1c2228;
+    border: 1px solid #38414a;
+    padding: 25px;
+    border-radius: 5px;
+    max-width: 420px;
+    margin: 0 auto;
 }
 
-.caixa-editar {
-  max-width: 600px;
-  margin: 0 0 24px 0;
+.caixa .form-control {
+    background-color: #14181c;
+    border: 1px solid #38414a;
+    color: white;
 }
 
-.caixa .form-control, .modal-content .form-control {
-  background-color: var(--bg-input);
-  border: 1px solid var(--border-color);
-  color: var(--text-primary);
-  border-radius: 4px;
-  transition: var(--transition);
+.caixa .form-control:focus {
+    border-color: #00c030;
+    box-shadow: none;
 }
 
-.caixa .form-control:focus, .modal-content .form-control:focus {
-  border-color: var(--brand-green);
-  box-shadow: 0 0 0 3px rgba(0, 192, 48, 0.15);
-  outline: none;
+.caixa .form-control::placeholder {
+    color: #678;
 }
 
-.caixa .form-control::placeholder { color: var(--text-secondary); }
-.caixa label { color: var(--text-primary); font-size: 14px; margin-bottom: 6px; font-weight: 500; }
-
-.titulo-secao {
-  color: var(--text-secondary);
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-bottom: 1px solid var(--border-color);
-  padding-bottom: 8px;
-  margin-bottom: 20px;
+.caixa label {
+    color: white;
+    font-size: 14px;
+    margin-bottom: 4px;
 }
 
-/* ==========================================
-   6. PERFIL E FOTOS
-   ========================================== */
 .foto-perfil {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid var(--border-color);
-  box-shadow: var(--shadow-sm);
+    width: 120px;
+    height: 120px;
+    border-radius: 16px;
+    object-fit: cover;
+    border: 1px solid #38414a;
 }
 
 .foto-inicial {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--brand-green);
-  color: var(--text-on-green);
-  font-size: 48px;
-  font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #00c030;
+    color: #14181c;
+    font-size: 48px;
+    font-weight: bold;
 }
 
-.foto-pequena {
-  width: 80px;
-  height: 80px;
-  font-size: 32px;
+.titulo-secao {
+    color: #9ab;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #38414a;
+    padding-bottom: 6px;
+    margin-bottom: 15px;
 }
 
-.bio {
-  color: var(--text-secondary);
-  white-space: pre-line;
-  max-width: 500px;
-  margin-bottom: 15px;
-  line-height: 1.5;
+.btn-cinza {
+    background-color: #456;
+    color: white;
+    border: none;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 3px;
 }
 
-/* ==========================================
-   7. CARTÕES DE FILMES (Página Filmes)
-   ========================================== */
-.card {
-  background-color: var(--surface-color);
-  border: 1px solid var(--border-color);
-  color: var(--text-primary);
-  border-radius: var(--radius-md);
-  transition: var(--transition);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+.btn-grande {
+    font-size: 15px;
+    padding: 10px 26px;
+    border-radius: 4px;
 }
 
-.card:hover {
-  transform: translateY(-6px);
-  border-color: var(--border-hover) !important;
-  box-shadow: var(--shadow-lg);
-}
-
-.card-img-top {
-  width: 100%;
-  aspect-ratio: 2 / 3;
-  object-fit: cover;
-  background-color: var(--bg-input);
-  border-bottom: 1px solid var(--border-color);
-  transition: transform 0.4s ease;
-}
-
-.card:hover .card-img-top { transform: scale(1.03); }
-
-.card-title {
-  font-size: 1.05rem;
-  font-weight: 600;
-  line-height: 1.4;
-  margin-bottom: 0.8rem;
-}
-
-/* ==========================================
-   8. GRIDS, POSTERS E FAVORITOS
-   ========================================== */
-.grade-posters {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 16px;
-  margin-bottom: 40px;
+.btn-cinza:hover {
+    background-color: #567;
+    color: white;
 }
 
 .grade-favoritos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
 }
 
-.poster, .slot {
-  display: block;
-  aspect-ratio: 2 / 3;
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  border: 1px solid var(--border-color);
-  background-color: var(--surface-color);
-  position: relative;
-  transition: var(--transition);
+.slot {
+    position: relative;
+    aspect-ratio: 2 / 3;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #38414a;
+    background-color: #1c2228;
 }
-
-.poster:hover {
-  border-color: var(--border-hover);
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-}
-
-.poster img, .slot img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s;
-}
-
-.poster:hover img, .slot:hover img { transform: scale(1.05); }
 
 .slot-vazio {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px dashed var(--border-color);
-  background: none;
-  color: var(--text-secondary);
-  font-size: 40px;
-  cursor: pointer;
-  transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #38414a;
+    background: none;
+    color: #567;
+    font-size: 40px;
+    cursor: pointer;
 }
+
 .slot-vazio:hover {
-  border-color: var(--brand-green);
-  color: var(--brand-green);
-  background-color: rgba(0, 192, 48, 0.05);
+    border-color: #00c030;
+    color: #00c030;
 }
 
 .slot-titulo {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  transform: translateY(-50%);
-  padding: 10px;
-  text-align: center;
-  color: #ffffff; /* Sempre branco por cima das imagens */
-  font-weight: 700;
-  font-size: 14px;
-  z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    padding: 10px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.slot img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .btn-remover {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 28px;
-  height: 28px;
-  border: none;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: #ffffff;
-  line-height: 1;
-  opacity: 0;
-  z-index: 2;
-  transition: var(--transition);
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 26px;
+    height: 26px;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    line-height: 1;
+    opacity: 0;
 }
-.btn-remover:hover {
-  background-color: var(--brand-pink);
-  transform: scale(1.1);
-}
-.slot:hover .btn-remover { opacity: 1; }
 
-/* ==========================================
-   9. MODAL DE BUSCA
-   ========================================== */
-.modal-content {
-  background-color: var(--surface-color);
-  border: 1px solid var(--border-color);
-  color: var(--text-primary);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-lg);
+.slot:hover .btn-remover {
+    opacity: 1;
 }
-.modal-header { border-bottom: 1px solid var(--border-color); }
-
-.lista-resultados {
-  max-height: 340px;
-  overflow-y: auto;
-  margin-top: 16px;
-  padding-right: 5px;
-}
-.lista-resultados::-webkit-scrollbar { width: 6px; }
-.lista-resultados::-webkit-scrollbar-thumb { background-color: var(--border-color); border-radius: 4px; }
 
 .resultado {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  width: 100%;
-  padding: 10px;
-  background: none;
-  border: none;
-  border-radius: var(--radius-sm);
-  color: var(--text-primary);
-  text-align: left;
-  transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 8px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #38414a;
+    color: white;
+    text-align: left;
 }
-.resultado:hover {
-  background-color: var(--surface-hover);
-  transform: translateX(4px);
-}
-.resultado img {
-  width: 45px;
-  height: 65px;
-  object-fit: cover;
-  border-radius: 4px;
-  background-color: var(--bg-input);
-  box-shadow: var(--shadow-sm);
-}
-.resultado small { color: var(--text-secondary); display: block; margin-top: 4px; }
 
-/* ==========================================
-   10. RESPONSIVIDADE (Mobile)
-   ========================================== */
-@media (max-width: 768px) {
-  .banner {
-    flex-direction: column;
-    text-align: center;
-    gap: 20px;
-  }
+.resultado:hover {
+    background-color: #28313b;
 }
+
+.resultado img {
+    width: 40px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 3px;
+    background-color: #14181c;
+}
+
+.resultado small {
+    color: #9ab;
+}
+
+.modal-content {
+    background-color: #1c2228;
+    border: 1px solid #38414a;
+    color: white;
+}
+
+.modal-header {
+    border-bottom: 1px solid #38414a;
+}
+
+.lista-resultados {
+    max-height: 340px;
+    overflow-y: auto;
+    margin-top: 12px;
+}
+
+.modal-content .form-control {
+    background-color: #14181c;
+    border: 1px solid #38414a;
+    color: white;
+}
+
 @media (max-width: 576px) {
-  .grade-favoritos {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    .grade-favoritos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.caixa-editar {
+    max-width: 600px;
+    margin: 0 0 24px 0;
+}
+
+.foto-pequena {
+    width: 80px;
+    height: 80px;
+    font-size: 32px;
+}
+
+.bio {
+    color: #9ab;
+    white-space: pre-line;
+    max-width: 500px;
+    margin-bottom: 10px;
+}
+
+.grade-posters {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.poster {
+    display: block;
+    aspect-ratio: 2 / 3;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid #38414a;
+    background-color: #1c2228;
+}
+
+.poster:hover {
+    border-color: #adb5bd;
+}
+
+.poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .grade-posters {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.card > a {
+    display: block;
+}
+
+.card-title a:hover {
+    color: #00c030;
 }
