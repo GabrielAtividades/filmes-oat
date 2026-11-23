@@ -36,10 +36,6 @@ document.querySelectorAll("#listaFilmes .card").forEach((card, index) => {
 
     if (!area) return;
 
-    area.querySelectorAll('button[onclick^="adicionarFavorito"]').forEach(botao => {
-        botao.remove();
-    });
-
     const botao = document.createElement("button");
 
     botao.className = "btn-verde";
